@@ -20,13 +20,18 @@ public class LightCone {
     private String name;
     private String details;
 
-    @OneToMany(mappedBy = "lightCone")
+    @ManyToMany(mappedBy = "lightCone")
     @JsonIgnore
-    private List<AscensionItem> ascensionItems;
+    private List<LightConeItem> lightConeItems;
 
-    private Integer needed;
+    private String ascensionItem1;
+    private Integer needed1;
+
+    private String ascensionItem2;
+    private Integer needed2;
 
     @OneToOne
+    @JsonIgnore
     private Character character;
 
     public LightCone(String name, String details, Character character) {

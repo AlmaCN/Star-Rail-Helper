@@ -14,6 +14,8 @@ public class LightConeDTO {
     private String characterName;
     @Nullable
     private int needed;
+    @Nullable
+    private String ascensionItemName;
 
     public LightConeDTO(int needed) {
         this.needed = needed;

@@ -57,7 +57,7 @@ public class LightConeService {
         LightCone lightConeUpdate = getLightConeById(id);
         lightConeUpdate.setName(lightCone.getName());
         lightConeUpdate.setDetails(lightCone.getDetails());
-        lightConeUpdate.setAscensionItems(lightCone.getAscensionItems());
+        lightConeUpdate.setLightConeItems(lightCone.getLightConeItems());
         lightConeUpdate.setCharacter(lightCone.getCharacter());
         return lightConeRepository.save(lightConeUpdate);
     }

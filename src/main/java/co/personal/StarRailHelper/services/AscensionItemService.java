@@ -3,7 +3,6 @@ package co.personal.StarRailHelper.services;
 import co.personal.StarRailHelper.entites.AscensionItem;
 import co.personal.StarRailHelper.entites.Character;
 import co.personal.StarRailHelper.entites.DTO.AscensionItemDTO;
-import co.personal.StarRailHelper.entites.LightCone;
 import co.personal.StarRailHelper.exceptions.AscensionItemNotFoundException;
 import co.personal.StarRailHelper.exceptions.CharacterNotFoundException;
 import co.personal.StarRailHelper.exceptions.LightConeNotFoundException;
@@ -13,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
-import java.util.stream.Stream;
 
 @Service
 public class AscensionItemService {
@@ -114,23 +112,6 @@ public class AscensionItemService {
         return ascensionItemRepository.save(ascensionItem);
     }
 
-    /*public AscensionItem saveForLightCone(AscensionItemDTO ascensionItemDTO) throws CharacterNotFoundException, LightConeNotFoundException {
-
-        LightCone lightCone = lightConeService.readByName(ascensionItemDTO.getLightConeName());
-
-        Integer needed1 = ascensionItemDTO.getNeeded1();
-        Integer needed2 = ascensionItemDTO.getNeeded2();
-
-        Integer needed = needed1 + needed2;
-
-        AscensionItem ascensionItem = new AscensionItem(
-                ascensionItemDTO.getName(),
-                ascensionItemDTO.getCollected(),
-                needed,
-                lightCone);
-        return ascensionItemRepository.save(ascensionItem);
-    }*/
-
     public AscensionItem read(Long id) throws AscensionItemNotFoundException {
         return getAscensionItemsById(id);
     }
@@ -164,7 +145,6 @@ public class AscensionItemService {
         ascensionItemUpdated.setName(ascensionItem.getName());
         ascensionItemUpdated.setCollected(ascensionItem.getCollected());
         ascensionItemUpdated.setCharacter(ascensionItem.getCharacter());
-        ascensionItemUpdated.setLightCone(ascensionItem.getLightCone());
         return ascensionItemRepository.save(ascensionItemUpdated);
     }
 

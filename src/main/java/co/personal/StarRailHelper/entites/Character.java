@@ -31,11 +31,9 @@ public class Character {
     private Integer needed2;
 
     @OneToOne
-    @JsonIgnore
     private LightCone lightCone;
 
     @OneToMany(mappedBy = "character")
-    @JsonIgnore
     private List<Trace> trace;
 
     public Character(String name, String details) {

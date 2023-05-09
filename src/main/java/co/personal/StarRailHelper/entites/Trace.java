@@ -20,10 +20,10 @@ public class Trace {
     private String name;
 
     @OneToMany(mappedBy = "trace")
-    @JsonIgnore
     private List<TraceItem> tracesItems;
 
     @ManyToOne
+    @JsonIgnore
     private Character character;
 
     public Trace(String name, Character character) {

@@ -9,8 +9,8 @@ spring:
     show-sql: true
   datasource:
     url: jdbc:mysql://localhost:3306/starraildb
-    username: 
-    password:
+    username: root
+    password: password
     driver-class-name: com.mysql.cj.jdbc.Driver
   output:
     ansi:

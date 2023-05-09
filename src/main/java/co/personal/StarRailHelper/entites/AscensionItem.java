@@ -1,5 +1,6 @@
 package co.personal.StarRailHelper.entites;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -20,10 +21,10 @@ public class AscensionItem {
     private int collected;
 
     @ManyToMany
+    @JsonIgnore
     private List<Character> character;
 
-    @ManyToOne
-    private LightCone lightCone;
+
 
     public AscensionItem(String name, int collected, List<Character> character) {
         this.name = name;
@@ -31,9 +32,5 @@ public class AscensionItem {
         this.character = character;
     }
 
-    public AscensionItem(String name, int collected, LightCone lightCone) {
-        this.name = name;
-        this.collected = collected;
-        this.lightCone = lightCone;
-    }
+
 }
