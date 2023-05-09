@@ -1,30 +1,34 @@
 package co.personal.StarRailHelper.entites;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Set;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 @Entity
 @Table(name = "Characters")
 public class Character {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String details;
 
     @ManyToMany(mappedBy = "character")
     @JsonIgnore
-    private List<AscensionItems> ascensionItems;
+    private List<AscensionItem> ascensionItems;
+
+    private String ascensionItem1;
+    private Integer needed1;
+
+    private String ascensionItem2;
+    private Integer needed2;
 
     @OneToOne
     @JsonIgnore
@@ -33,10 +37,6 @@ public class Character {
     @OneToMany(mappedBy = "character")
     @JsonIgnore
     private List<Trace> trace;
-
-    @OneToMany(mappedBy = "character")
-    @JsonIgnore
-    private List<Relics> relics;
 
     public Character(String name, String details) {
         this.name = name;

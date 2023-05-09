@@ -1,26 +1,23 @@
 package co.personal.StarRailHelper.entites;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Set;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 @Entity
 @Table(name = "Ascension_Items")
-public class AscensionItems {
+public class AscensionItem {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private int collected;
-    private int needed;
 
     @ManyToMany
     private List<Character> character;
@@ -28,17 +25,15 @@ public class AscensionItems {
     @ManyToOne
     private LightCone lightCone;
 
-    public AscensionItems(String name, int collected, int needed, List<Character> character) {
+    public AscensionItem(String name, int collected, List<Character> character) {
         this.name = name;
         this.collected = collected;
-        this.needed = needed;
         this.character = character;
     }
 
-    public AscensionItems(String name, int collected, int needed, LightCone lightCone) {
+    public AscensionItem(String name, int collected, LightCone lightCone) {
         this.name = name;
         this.collected = collected;
-        this.needed = needed;
         this.lightCone = lightCone;
     }
 }

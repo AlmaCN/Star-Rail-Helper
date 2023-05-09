@@ -2,7 +2,6 @@ package co.personal.StarRailHelper.entites.DTO;
 
 import lombok.*;
 
-@Data
 @Getter
 @Setter
 @AllArgsConstructor

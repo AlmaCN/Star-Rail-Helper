@@ -2,13 +2,14 @@ package co.personal.StarRailHelper.entites.DTO;
 
 import lombok.*;
 
-@Data
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class RelicsDTO {
+public class TraceItemDTO {
 
     private String name;
-    private String characterName;
+    private int collected;
+    private int needed;
+    private String traceName;
 }

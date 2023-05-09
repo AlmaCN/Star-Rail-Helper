@@ -1,20 +1,19 @@
 package co.personal.StarRailHelper.entites;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 @Entity
 @Table(name = "Traces_Items")
-public class TracesItems {
+public class TraceItem {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private int collected;
@@ -23,7 +22,7 @@ public class TracesItems {
     @ManyToOne
     private Trace trace;
 
-    public TracesItems(String name, int collected, int needed, Trace trace) {
+    public TraceItem(String name, int collected, int needed, Trace trace) {
         this.name = name;
         this.collected = collected;
         this.needed = needed;

@@ -1,29 +1,30 @@
 package co.personal.StarRailHelper.entites;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 @Entity
 @Table(name = "Light_Cone")
 public class LightCone {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String details;
 
     @OneToMany(mappedBy = "lightCone")
     @JsonIgnore
-    private List<AscensionItems> ascensionItems;
+    private List<AscensionItem> ascensionItems;
+
+    private Integer needed;
 
     @OneToOne
     private Character character;
